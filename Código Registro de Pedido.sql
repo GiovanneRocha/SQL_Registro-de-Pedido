@@ -244,6 +244,8 @@ SELECT * FROM Cliente WHERE nome like '%a%'; -- Listando todos os clientes que p
 SELECT * FROM produto WHERE nome like 'j%'; -- Listando todos os produtos que começem com a letra J no nome;
 SELECT * FROM vendedor WHERE nome like '%s'; -- Listando todos os vendedores que terminem com a letra S;
 
+Select * from produto order by idProduto desc limit 10;
+Select * from produto order by preco desc limit 2;
 
 SELECT c.nome AS nome_cliente, c.email AS email_cliente, cd.nome AS nome_cidade FROM cliente c
 INNER JOIN cidade cd 
@@ -261,11 +263,10 @@ ON p.idVendedor = v.idVendedor
 INNER JOIN cliente c
 ON p.idCliente = c.idCliente;
 
+
 CREATE OR REPLACE VIEW vw_listar AS SELECT * FROM cliente;
 
 SELECT * FROM vw_listar;
 
 CREATE OR REPLACE VIEW vw_listar AS SELECT nome, email
 FROM cliente order by nome;
-
-SHOW TABLES;
